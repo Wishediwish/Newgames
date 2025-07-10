@@ -5,14 +5,16 @@
   <title>Путь Итами</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      color: #fff;
-      background: #000;
-      background-size: cover;
-      background-position: center;
-      transition: background-image 1s ease-in-out;
-    }
+  margin: 0;
+  font-family: 'Georgia', serif;
+  color: #fff;
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-size: cover;       /* Заполняет экран, но может обрезать */
+  background-position: center;  /* Центрирует фон */
+  background-attachment: fixed; /* Фиксирует фон — не двигается при скролле */
+  image-rendering: auto;        /* Отключает пикселизацию на некоторых браузерах */
+}
     .screen {
       display: none;
       padding: 2em;
