@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Путь Итами</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      color: #fff;
+      background: #000;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
+    }
+    .screen {
+      display: none;
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+    }
+    .active {
+      display: block;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 16px;
+      padding: 2em;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+    }
+    h1 {
+      text-align: center;
+      color: #ffd1dc;
+    }
+    button {
+      margin: 1em 0;
+      background: #444;
+      border: none;
+      padding: 1em;
+      color: white;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #666;
+    }
+    #finalResult {
+      margin-top: 1em;
+      padding: 1em;
+      background: #223;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div id="scene1" class="screen active">
+    <div class="container">
+      <h1>💧 Водопад Очищения</h1>
+      <p>Ты просыпаешься у подножия величественного водопада. Тихий голос духа говорит: «Проходи сквозь поток, впереди тебя ждёт звёздная степь...»</p>
+      <button onclick="next('scene2')">Пройти сквозь водопад</button>
+    </div>
+  </div>
+
+  <div id="scene2" class="screen">
+    <div class="container">
+      <h1>🌌 Астрономическая Степь</h1>
+      <p>Ты идешь под бескрайним звёздным небом. Замок на горизонте притягивает тебя — там начинается настоящее испытание.</p>
+      <button onclick="next('scene3')">Направиться к замку</button>
+    </div>
+  </div>
+
+  <div id="scene3" class="screen">
+    <div class="container">
+      <h1>🏛️ Зал Испытаний</h1>
+      <p>Ты входишь в зал, освещённый фиолетовыми огнями. Чтобы пройти дальше, ответь:</p>
+      <p>Какое воспоминание объединяет вас с Вишедом сильнее всего?</p>
+      <button onclick="next('scene4')">То, что не требует слов</button>
+    </div>
+  </div>
+
+  <div id="scene4" class="screen">
+    <div class="container">
+      <h1>🔥 Огненные Залы</h1>
+      <p>Огонь здесь — это эмоции. Всё, что вы чувствовали, горит ярким пламенем.</p>
+      <p>Самое сильное пламя здесь принадлежит...</p>
+      <button onclick="next('scene5')">Искренности</button>
+    </div>
+  </div>
+
+  <div id="scene5" class="screen">
+    <div class="container">
+      <h1>🌫️ Тропа Сомнений</h1>
+      <p>Духи сомнений вьются в тумане, но ни один из них не приближается. Ты чувствуешь — у Вишеда не осталось ни одного сомнения в тебе…</p>
+      <button onclick="next('scene6')">Пройти тропу</button>
+    </div>
+  </div>
+
+  <div id="scene6" class="screen">
+    <div class="container">
+      <h1>🪽 Animae</h1>
+      <p>Ты находишь коробку, в ней — фрагмент души Вишеда. Записка гласит: «Я оставил это, чтобы оно согревало тебя… Пока мы не рядом.»</p>
+      <button onclick="next('scene7')">Принять свет</button>
+    </div>
+  </div>
+
+  <div id="scene7" class="screen">
+    <div class="container">
+      <h1>🌤️ Очищенная Тропа</h1>
+      <p>Ты возвращаешься по той же тропе. Но теперь свет, исходящий от души Вишеда, освещает путь. Все сомнения рассеяны…</p>
+      <p>Ты просыпаешься — и в руках у тебя коробка.</p>
+      <p>Подарок… и доказательство любви.</p>
+      <p><strong>💖 С любовью, навсегда — Вишед.</strong></p>
+    </div>
+  </div>
+
+  <script>
+    const sceneBackgrounds = {
+      'scene1': 'url("backgrounds/waterfall.jpg")',
+      'scene2': 'url("backgrounds/starfield.jpg")',
+      'scene3': 'url("backgrounds/trial_corridor.jpg")',
+      'scene4': 'url("backgrounds/fire_hall.jpg")',
+      'scene5': 'url("backgrounds/doubt_path_misty.jpg")',
+      'scene6': 'url("backgrounds/animae.jpg")',
+      'scene7': 'url("backgrounds/doubt_path_clear.jpg")'
+    };
+
+    function next(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      if (sceneBackgrounds[id]) {
+        document.body.style.backgroundImage = sceneBackgrounds[id];
+      }
+    }
+  </script>
+</body>
+</html>
